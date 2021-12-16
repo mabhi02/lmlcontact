@@ -1,9 +1,9 @@
 <?php
 
-$name="heroku_bf57ae6961c936f";
+$name="herokuhost";
 $username = "b779551da75fbb";
 $password = "e21ad95b";
-$database = "lmldata";
+$database = "heroku_bf57ae6961c936f";
 $connect=mysqli_connect($name,$username,$password,$database);
 if(!$connect)
 {
