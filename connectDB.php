@@ -1,13 +1,17 @@
 <?php
 
-$name="herokuhost";
-$username = "b779551da75fbb";
-$password = "e21ad95b";
-$database = "heroku_bf57ae6961c936f";
-$connect=mysqli_connect($name,$username,$password,$database);
-if(!$connect)
+<?php
+$url = parse_url(getenv("mysql://b779551da75fbb:e21ad95b@us-cdbr-east-05.cleardb.net/heroku_bf57ae6961c936f?reconnect=true"));
+
+$server = $url["us-cdbr-east-05.cleardb.net"];
+$username = $url["b779551da75fbb"];
+$password = $url["e21ad95b"];
+$db = substr($url["heroku_bf57ae6961c936f"], 1);
+
+$conn = new mysqli($server, $username, $password, $db);
+if(!$conn)
 {
-  die("Could not connect" . mysqli_connect_error());
+  die("Could not conn" . mysqli_conn_error());
 }
 if(isset($_POST['sub']))
 {
@@ -17,14 +21,14 @@ if(isset($_POST['sub']))
   $cellphone = $_POST['cellphone'];
   $sql_query = "INSERT INTO lmldata (username1,message,email,cellphone)
   VALUES ('$username1','$message','$email','$cellphone')";
-  if(mysqli_query($connect, $sql_query))
+  if(mysqli_query($conn, $sql_query))
   {
     echo "Connected";
   }
   else
   {
-    echo "Error: " . $sql . "" . mysqli_error($connect);
+    echo "Error: " . $sql . "" . mysqli_error($conn);
   }
-  mysqli_close($connect);
+  mysqli_close($conn);
 }
 ?>
