@@ -5,7 +5,7 @@ $cleardb_url = parse_url(getenv("mysql://b779551da75fbb:e21ad95b@us-cdbr-east-05
 $cleardb_server = $cleardb_url["us-cdbr-east-05.cleardb.net"];
 $cleardb_username = $cleardb_url["b779551da75fbb"];
 $cleardb_password = $cleardb_url["e21ad95b"];
-$cleardb_db = substr($cleardb_url["config.inc.php"],1);
+$cleardb_db = substr($cleardb_url["mysql://b779551da75fbb:e21ad95b@us-cdbr-east-05.cleardb.net/heroku_bf57ae6961c936f?reconnect=true"],1);
 $active_group = 'default';
 $query_builder = TRUE;
 // Connect to DB
