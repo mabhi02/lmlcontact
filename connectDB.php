@@ -2,7 +2,7 @@
 $name="localhost";
 $username = "root";
 $password = "";
-$database = "lml";
+$database = "lmldata";
 $connect=mysqli_connect($name,$username,$password,$database);
 if(!$connect)
 {
