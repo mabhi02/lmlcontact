@@ -6,8 +6,7 @@ $server = $url["us-cdbr-east-05.cleardb.net"];
 $username = $url["b779551da75fbb"];
 $password = $url["e21ad95b"];
 $db = substr($url["heroku_bf57ae6961c936f"], 1);
-
-$conn = new mysqli($server, $username, $password, $db);
+$conn = mysqli_connect($server, $username, $password, $db);
 if(!$conn)
 {
   die("Could not connnect" . mysqli_connect_error());
