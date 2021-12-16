@@ -1,4 +1,3 @@
-<?php
 
 <?php
 $url = parse_url(getenv("mysql://b779551da75fbb:e21ad95b@us-cdbr-east-05.cleardb.net/heroku_bf57ae6961c936f?reconnect=true"));
@@ -11,7 +10,7 @@ $db = substr($url["heroku_bf57ae6961c936f"], 1);
 $conn = new mysqli($server, $username, $password, $db);
 if(!$conn)
 {
-  die("Could not conn" . mysqli_conn_error());
+  die("Could not connnect" . mysqli_connect_error());
 }
 if(isset($_POST['sub']))
 {
